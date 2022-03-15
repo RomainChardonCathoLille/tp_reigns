@@ -42,11 +42,13 @@ public class Jeu {
         
         // tirage des questions
         int nbTours = 0;
-        while(!personnage.finDuJeu()){
+        boolean finDuJeu = false;
+        while(finDuJeu == false){
             nbTours++;
             Question question = questions.getQuestion();
             reponseQuestion(question);
             personnage.AfficheJauges();
+            finDuJeu = finDuJeu();
         }
         
         // fin du jeu
@@ -77,8 +79,6 @@ public class Jeu {
             question.getEffetJaugeDroite().Appliquer_Effets(personnage);
         }
     }
-    
-    
     private static void initPersonnage(){        
         Scanner scanner = new Scanner(System.in);
         System.out.println("Entrez le nom du personnage: ");
@@ -100,6 +100,16 @@ public class Jeu {
                 new Jauge("Armée"),
                 new Jauge("Finance")
                 );
+    }
+    public static boolean finDuJeu(){
+        if(personnage.getJaugeClerge().jauge_remplie_ou_finie()
+                || personnage.getJaugePeuple().jauge_remplie_ou_finie()
+                || personnage.getJaugeArmee().jauge_remplie_ou_finie()
+                || personnage.getJaugeFinance().jauge_remplie_ou_finie()){
+            return true;
+        }else{
+            return false;
+        }
     }
 
 }

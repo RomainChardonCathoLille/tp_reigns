@@ -46,40 +46,6 @@ public class Personnage {
         this.jaugeFinance.afficher_jauge();
         System.out.flush();
     }
-    
-    /**
-     * Le jeu s'arrête si une des jauges atteint 0 ou 50
-     * @return 
-     */
-    public boolean finDuJeu(){
-        if(jaugeClerge.jauge_remplie_ou_finie()
-        || jaugePeuple.jauge_remplie_ou_finie()
-        || jaugeArmee.jauge_remplie_ou_finie()
-        || jaugeFinance.jauge_remplie_ou_finie()){
-            return true;
-        }else{
-            return false;
-        }
-    }
-
-    public void appliquerEffet(Map<TypeJauge, Integer> effets){
-        for(Map.Entry<TypeJauge, Integer> effet : effets.entrySet()){
-            switch (effet.getKey()){
-                case ARMEE:
-                    this.jaugeArmee.appliquer_effet(effet.getValue());
-                    break;
-                case CLERGE:
-                    this.jaugeClerge.appliquer_effet(effet.getValue());
-                    break;
-                case FINANCE:
-                    this.jaugeFinance.appliquer_effet(effet.getValue());
-                    break;
-                case PEUPLE:
-                    this.jaugePeuple.appliquer_effet(effet.getValue());
-                    break;
-            }
-        }
-    }
 
     public String getNom() {
         return nom;
