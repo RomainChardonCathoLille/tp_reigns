@@ -9,6 +9,7 @@ package com.fges.tp_solid.reigns.Personnage;
 import com.fges.tp_solid.reigns.Jauges.Jauge;
 import com.fges.tp_solid.reigns.Jauges.TypeJauge;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -25,14 +26,14 @@ public class Personnage {
     protected Jauge jaugeArmee;
     protected Jauge jaugeFinance;
     
-    public Personnage(String nom, Genre genre){
+    public Personnage(String nom, Genre genre, Jauge _jaugeClerge, Jauge _jaugePeuple, Jauge _jaugeArmee, Jauge _jaugeFinance){
         this.nom = nom;
         this.genre = genre;
-        
-        jaugeClerge = new Jauge("Clergé");
-        jaugePeuple = new Jauge("Peuple");
-        jaugeArmee = new Jauge("Armée");
-        jaugeFinance = new Jauge("Finance");
+
+        this.jaugeClerge = _jaugeClerge;
+        this.jaugePeuple = _jaugePeuple;
+        this.jaugeArmee = _jaugeArmee;
+        this.jaugeFinance = _jaugeFinance;
     }
     
     /**

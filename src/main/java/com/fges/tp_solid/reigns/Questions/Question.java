@@ -5,9 +5,13 @@
  */
 package com.fges.tp_solid.reigns.Questions;
 
+import com.fges.tp_solid.reigns.Effet.Effet;
+import com.fges.tp_solid.reigns.Effet.Effets;
 import com.fges.tp_solid.reigns.Personnage.Personnage;
 import com.fges.tp_solid.reigns.Jauges.TypeJauge;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.TreeMap;
@@ -23,19 +27,22 @@ public class Question {
     protected String question;
     protected String effetGauche;
     protected String effetDroite;
-    protected Map<TypeJauge,Integer> effetJaugeGauche;
-    protected Map<TypeJauge,Integer> effetJaugeDroite;
+    //protected Map<TypeJauge,Integer> effetJaugeGauche;
+    //protected Map<TypeJauge,Integer> effetJaugeDroite;
+    protected Effets effetJaugeGauche;
+    protected Effets effetJaugeDroite;
     
     public Question(String nomPersonnage, 
                     String question,
                     String effetGauche,
-                    String effetDroite){
+                    String effetDroite
+                    ){
         this.nomPersonnage = nomPersonnage;
         this.question = question;
         this.effetGauche = effetGauche;
         this.effetDroite = effetDroite;
-        this.effetJaugeGauche = new TreeMap<>();
-        this.effetJaugeDroite = new TreeMap<>();
+        this.effetJaugeGauche = new Effets();
+        this.effetJaugeDroite = new Effets();
     }
     
     public void afficheQuestion(){
@@ -45,43 +52,18 @@ public class Question {
                 + ",D: "+effetDroite
                 + "]";
         System.out.println(result);
-        System.out.println("Effet G:"+afficheEffets(effetJaugeGauche));
-        System.out.println("Effet D:"+afficheEffets(effetJaugeDroite));
+        System.out.println("Effet G:" + effetJaugeGauche.Afficher_Effets());
+        System.out.println("Effet G:" + effetJaugeDroite.Afficher_Effets());
         System.out.flush();
         
     }
-    /**
-     * exemple : jauge armée : -5 ; jauge peuple : +5
-     * @return 
-     */
-    private String afficheEffets(Map<TypeJauge,Integer> effets){
-        String result = "";
-        for(Entry<TypeJauge,Integer> effet : effets.entrySet()){
-            result += "; jauge "+effet.getKey().toString()+" : ";
-            if(effet.getValue()>0)
-                result += "+";
-            result += effet.getValue();
-        }
-        return result.substring(1);
-    }
-    /*
-    public void appliqueEffetsGauche(Personnage personnage){
-        this.appliqueEffets(effetJaugeGauche, personnage);
-    }
 
-    public void appliqueEffetsDroite(Personnage personnage){
-        this.appliqueEffets(effetJaugeDroite, personnage);
-    } */
-
-    
-    public void ajouteEffetGauche(TypeJauge jauge,
-                                   int valeur){
-        effetJaugeGauche.put(jauge,valeur);
+    public void ajouteEffetGauche(Effet _effet){
+        this.effetJaugeGauche.Ajouter_Effet(_effet);
     }
     
-    public void ajouteEffetDroite(TypeJauge jauge,
-                                   int valeur){
-        effetJaugeDroite.put(jauge,valeur);
+    public void ajouteEffetDroite(Effet _effet){
+        this.effetJaugeDroite.Ajouter_Effet(_effet);
     }
 
     public String getNomPersonnage() {
@@ -116,8 +98,6 @@ public class Question {
         this.effetDroite = effetDroite;
     }
 
-    public Map<TypeJauge,Integer> getEffetJaugeGauche(){ return this.effetJaugeGauche; }
-    public Map<TypeJauge,Integer> getEffetJaugeDroite(){ return this.effetJaugeDroite; }
-
-
+    public Effets getEffetJaugeGauche(){return this.effetJaugeGauche;}
+    public Effets getEffetJaugeDroite(){return this.effetJaugeDroite;}
 }
