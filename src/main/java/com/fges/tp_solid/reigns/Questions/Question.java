@@ -35,14 +35,18 @@ public class Question {
     public Question(String nomPersonnage, 
                     String question,
                     String effetGauche,
-                    String effetDroite
+                    String effetDroite,
+                    Effets _effetJaugeGauche,
+                    Effets _effetJaugeDroite
                     ){
         this.nomPersonnage = nomPersonnage;
         this.question = question;
         this.effetGauche = effetGauche;
         this.effetDroite = effetDroite;
-        this.effetJaugeGauche = new Effets();
-        this.effetJaugeDroite = new Effets();
+        //this.effetJaugeGauche = new Effets();
+        //this.effetJaugeDroite = new Effets();
+        this.effetJaugeGauche = _effetJaugeGauche;
+        this.effetJaugeDroite = _effetJaugeDroite;
     }
     
     public void afficheQuestion(){

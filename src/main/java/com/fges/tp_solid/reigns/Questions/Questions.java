@@ -1,6 +1,7 @@
 package com.fges.tp_solid.reigns.Questions;
 
 import com.fges.tp_solid.reigns.Effet.Effet;
+import com.fges.tp_solid.reigns.Effet.Effets;
 import com.fges.tp_solid.reigns.Jauges.TypeJauge;
 
 import java.util.ArrayList;
@@ -16,7 +17,9 @@ public class Questions {
                 "Main du roi",
                 "Le peuple souhaite libérer les prisonniers",
                 "Oui",
-                "Non"
+                "Non",
+                new Effets(),
+                new Effets()
         );
         question1.ajouteEffetGauche(new Effet(TypeJauge.ARMEE, -5));
         question1.ajouteEffetGauche(new Effet(TypeJauge.PEUPLE, +5));
@@ -26,7 +29,7 @@ public class Questions {
                 "Paysan",
                 "Il n'y a plus rien à manger",
                 "Importer de la nourriture",
-                "Ne rien faire");
+                "Ne rien faire", new Effets(), new Effets());
         question2.ajouteEffetGauche(new Effet(TypeJauge.FINANCE,-5));
         question2.ajouteEffetGauche(new Effet(TypeJauge.PEUPLE, +5));
         question2.ajouteEffetDroite(new Effet(TypeJauge.PEUPLE, -5));
@@ -35,7 +38,7 @@ public class Questions {
                 "Prêtre",
                 "Les dieux sont en colère",
                 "Faire un sacrifice",
-                "Ne rien faire");
+                "Ne rien faire", new Effets(), new Effets());
         question3.ajouteEffetGauche(new Effet(TypeJauge.CLERGE, +5));
         question3.ajouteEffetGauche(new Effet(TypeJauge.PEUPLE, -3));
         question3.ajouteEffetDroite(new Effet(TypeJauge.CLERGE, -5));
@@ -44,7 +47,7 @@ public class Questions {
                 "Main du roi",
                 "Le roi Baratheon rassemble son armée",
                 "Le soutenir",
-                "Rester neutre");
+                "Rester neutre", new Effets(), new Effets());
         question4.ajouteEffetGauche(new Effet(TypeJauge.ARMEE, +3));
         question4.ajouteEffetGauche(new Effet(TypeJauge.FINANCE, -3));
         question4.ajouteEffetGauche(new Effet(TypeJauge.CLERGE, -3));
@@ -54,7 +57,7 @@ public class Questions {
                 "Paysan",
                 "Abondance de récoltes cette année",
                 "Taxer énormément",
-                "Taxer un tout petit peu");
+                "Taxer un tout petit peu", new Effets(), new Effets());
         question5.ajouteEffetGauche(new Effet(TypeJauge.FINANCE, +10));
         question5.ajouteEffetGauche(new Effet(TypeJauge.PEUPLE, -5));
         question5.ajouteEffetDroite(new Effet(TypeJauge.FINANCE, +1));
