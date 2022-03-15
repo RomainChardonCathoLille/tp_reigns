@@ -15,6 +15,8 @@ import com.fges.tp_solid.reigns.Questions.Questions;
 import static com.fges.tp_solid.reigns.Personnage.Genre.REINE;
 import static com.fges.tp_solid.reigns.Personnage.Genre.ROI;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 
@@ -94,22 +96,23 @@ public class Jeu {
             roiReine = REINE;
         }
         
-        Jeu.personnage = new Personnage(nom,roiReine,
+        /*Jeu.personnage = new Personnage(nom,roiReine,
                 new Jauge("Clergé"),
                 new Jauge("Peuple"),
                 new Jauge("Armée"),
                 new Jauge("Finance")
-                );
+                );*/
+        List<Jauge> jauges = Arrays.asList(new Jauge("Clergé"), new Jauge("Peuple"), new Jauge("Armée"), new Jauge("Finances"));
+        Jeu.personnage = new Personnage(nom, roiReine, jauges);
     }
     public static boolean finDuJeu(){
-        if(personnage.getJaugeClerge().jauge_remplie_ou_finie()
-                || personnage.getJaugePeuple().jauge_remplie_ou_finie()
-                || personnage.getJaugeArmee().jauge_remplie_ou_finie()
-                || personnage.getJaugeFinance().jauge_remplie_ou_finie()){
-            return true;
-        }else{
-            return false;
+        List<Jauge> jauges = personnage.getJauges();
+        for(int i = 0; i < jauges.size(); i++){
+            if(jauges.get(i).getValeur() <= 0 || jauges.get(i).getValeur() >= 50){
+                return true;
+            }
         }
+        return false;
     }
 
 }

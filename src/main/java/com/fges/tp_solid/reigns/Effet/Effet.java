@@ -1,7 +1,10 @@
 package com.fges.tp_solid.reigns.Effet;
 
+import com.fges.tp_solid.reigns.Jauges.Jauge;
 import com.fges.tp_solid.reigns.Jauges.TypeJauge;
 import com.fges.tp_solid.reigns.Personnage.Personnage;
+
+import java.util.List;
 
 public class Effet {
     public TypeJauge typeJauge;
@@ -17,8 +20,7 @@ public class Effet {
     }
 
     public void AppliquerEffet(Personnage personnage){
-        switch (typeJauge){
-            case ARMEE:
+        /*    case ARMEE:
                 personnage.getJaugeArmee().appliquer_effet(effet);
                 break;
             case CLERGE:
@@ -30,6 +32,37 @@ public class Effet {
             case PEUPLE:
                 personnage.getJaugePeuple().appliquer_effet(effet);
                 break;
-        }
+        }*/
+        List<Jauge> jauges = personnage.getJauges();
+            switch (typeJauge){
+                case ARMEE:
+                    for(int i = 0; i < jauges.size(); i++){
+                        if(jauges.get(i).getNom().toUpperCase().equals("armée".toUpperCase())){
+                            jauges.get(i).appliquer_effet(effet);
+                        }
+                    }
+                    break;
+                case CLERGE:
+                    for(int i = 0; i < jauges.size(); i++){
+                        if(jauges.get(i).getNom().toUpperCase().equals("clergé".toUpperCase())){
+                            jauges.get(i).appliquer_effet(effet);
+                        }
+                    }
+                    break;
+                case FINANCE:
+                    for(int i = 0; i < jauges.size(); i++){
+                        if(jauges.get(i).getNom().toUpperCase().equals("finances".toUpperCase())){
+                            jauges.get(i).appliquer_effet(effet);
+                        }
+                    }
+                    break;
+                case PEUPLE:
+                    for(int i = 0; i < jauges.size(); i++){
+                        if(jauges.get(i).getNom().toUpperCase().equals("PEUPLE")){
+                            jauges.get(i).appliquer_effet(effet);
+                        }
+                    }
+                    break;
+            }
     }
 }

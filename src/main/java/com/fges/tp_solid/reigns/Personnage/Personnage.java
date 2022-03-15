@@ -5,10 +5,7 @@
  */
 package com.fges.tp_solid.reigns.Personnage;
 
-
 import com.fges.tp_solid.reigns.Jauges.Jauge;
-import com.fges.tp_solid.reigns.Jauges.TypeJauge;
-
 import java.util.List;
 import java.util.Map;
 
@@ -25,7 +22,10 @@ public class Personnage {
     protected Jauge jaugePeuple;
     protected Jauge jaugeArmee;
     protected Jauge jaugeFinance;
-    
+
+    protected List<Jauge> jauges;
+
+    /*
     public Personnage(String nom, Genre genre, Jauge _jaugeClerge, Jauge _jaugePeuple, Jauge _jaugeArmee, Jauge _jaugeFinance){
         this.nom = nom;
         this.genre = genre;
@@ -34,16 +34,25 @@ public class Personnage {
         this.jaugePeuple = _jaugePeuple;
         this.jaugeArmee = _jaugeArmee;
         this.jaugeFinance = _jaugeFinance;
+    }*/
+    public Personnage(String nom, Genre genre, List<Jauge> _jauges){
+        this.nom = nom;
+        this.genre = genre;
+        this.jauges = _jauges;
     }
     
     /**
      * Affiche les jauges dans la console
      */
     public void AfficheJauges(){
+        /*
         this.jaugeClerge.afficher_jauge();
         this.jaugePeuple.afficher_jauge();
         this.jaugeArmee.afficher_jauge();
-        this.jaugeFinance.afficher_jauge();
+        this.jaugeFinance.afficher_jauge();*/
+        for(int i = 0; i < this.jauges.size(); i++){
+            this.jauges.get(i).afficher_jauge();
+        }
         System.out.flush();
     }
 
@@ -62,7 +71,10 @@ public class Personnage {
     public void setGenre(Genre genre) {
         this.genre = genre;
     }
-
+    public List<Jauge> getJauges(){
+        return this.jauges;
+    }
+    /*
     public Jauge getJaugeClerge() {
         return jaugeClerge;
     }
@@ -93,6 +105,7 @@ public class Personnage {
 
     public void setJaugeFinance(Jauge jaugeFinance) {
         this.jaugeFinance = jaugeFinance;
-    }
+    }*/
+
     
 }
