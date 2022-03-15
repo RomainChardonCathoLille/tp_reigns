@@ -48,6 +48,7 @@ public class Question {
         this.effetJaugeGauche = _effetJaugeGauche;
         this.effetJaugeDroite = _effetJaugeDroite;
     }
+
     
     public void afficheQuestion(){
         String result = "["+nomPersonnage+"] "
