@@ -84,6 +84,8 @@ peut être modifié à *true* via une fonction. Son utilisation n'est pas
 obligatoire. Dans la fonction **AppliquerEffet**, un paramètre d'entrée
 booléen donné, s'il est égal à *true*, alors une variable **coefficient** est 
 mise à deux, sinon à un. L'effet est multiplié par ce dernier.
-## Auteurs
+## Auteurs & Adresse du GIT
 
 [*Romain Chardon*](https://github.com/RomainChardonCathoLille)
+
+[*Adresse du GIT*](https://github.com/RomainChardonCathoLille/tp_reigns)
