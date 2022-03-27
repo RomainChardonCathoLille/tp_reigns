@@ -19,7 +19,11 @@ public class Effet {
         return this.effet;
     }
 
-    public void AppliquerEffet(Personnage personnage){
+    public void AppliquerEffet(Personnage personnage, boolean effetDouble){
+        int coef = 1;
+        if(effetDouble == true){
+            coef = 2;
+        }
         /*    case ARMEE:
                 personnage.getJaugeArmee().appliquer_effet(effet);
                 break;
@@ -38,28 +42,28 @@ public class Effet {
                 case ARMEE:
                     for(int i = 0; i < jauges.size(); i++){
                         if(jauges.get(i).getNom().toUpperCase().equals("armée".toUpperCase())){
-                            jauges.get(i).appliquer_effet(effet);
+                            jauges.get(i).appliquer_effet((effet*coef));
                         }
                     }
                     break;
                 case CLERGE:
                     for(int i = 0; i < jauges.size(); i++){
                         if(jauges.get(i).getNom().toUpperCase().equals("clergé".toUpperCase())){
-                            jauges.get(i).appliquer_effet(effet);
+                            jauges.get(i).appliquer_effet((effet*coef));
                         }
                     }
                     break;
                 case FINANCE:
                     for(int i = 0; i < jauges.size(); i++){
                         if(jauges.get(i).getNom().toUpperCase().equals("finances".toUpperCase())){
-                            jauges.get(i).appliquer_effet(effet);
+                            jauges.get(i).appliquer_effet((effet*coef));
                         }
                     }
                     break;
                 case PEUPLE:
                     for(int i = 0; i < jauges.size(); i++){
                         if(jauges.get(i).getNom().toUpperCase().equals("PEUPLE")){
-                            jauges.get(i).appliquer_effet(effet);
+                            jauges.get(i).appliquer_effet((effet*coef));
                         }
                     }
                     break;

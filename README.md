@@ -75,7 +75,15 @@ Nous avons ensuite fait en sorte de pouvoir faire passer les jauges du
 
 ### Troisièmes modifications (version 2.0 - Reigns Game of Thrones)
 
-
+Pour cette dernière version, la classe **JeuGOT** est créée, elle étend
+la classe **Jeu**. La différence est qu'elle implémente de nouvelles
+variables afin de gérer le temps avant l'hiver, et la durée de 
+l'hiver. La classe **Effet** et la classe **Effets** ont étées modifiées 
+pour ajouter d'une part un booléen initialement égal à *false*, mais
+peut être modifié à *true* via une fonction. Son utilisation n'est pas
+obligatoire. Dans la fonction **AppliquerEffet**, un paramètre d'entrée
+booléen donné, s'il est égal à *true*, alors une variable **coefficient** est 
+mise à deux, sinon à un. L'effet est multiplié par ce dernier.
 ## Auteurs
 
 [*Romain Chardon*](https://github.com/RomainChardonCathoLille)

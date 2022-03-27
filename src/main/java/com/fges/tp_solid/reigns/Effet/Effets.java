@@ -7,7 +7,7 @@ import java.util.List;
 
 public class Effets {
     public List<Effet> effets;
-
+    public boolean effetsDoubles = false;
     public Effets(List<Effet> _effets){
         this.effets = _effets;
     }
@@ -18,8 +18,11 @@ public class Effets {
 
     public void Appliquer_Effets(Personnage personnage){
         for(int i = 0; i < effets.size(); i++){
-            effets.get(i).AppliquerEffet(personnage);
+            effets.get(i).AppliquerEffet(personnage, effetsDoubles);
         }
+    }
+    public void changeEffetsDoubles(boolean newBool){
+        this.effetsDoubles = newBool;
     }
 
     public void Ajouter_Effet(Effet _effet){
