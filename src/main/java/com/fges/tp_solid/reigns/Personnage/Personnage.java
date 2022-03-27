@@ -17,11 +17,6 @@ public class Personnage {
     
     protected String nom;
     protected Genre genre;
-    
-    protected Jauge jaugeClerge;
-    protected Jauge jaugePeuple;
-    protected Jauge jaugeArmee;
-    protected Jauge jaugeFinance;
 
     protected List<Jauge> jauges;
 

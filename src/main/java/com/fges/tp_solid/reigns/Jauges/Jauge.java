@@ -15,9 +15,10 @@ public class Jauge {
     protected String nom;
     protected int valeur;
 
-    public Jauge(String nom){
+    public Jauge(String nom, TypeJauge _type){
         this.nom = nom;
         this.valeur = (int) (15 + Math.random() * ( 35 - 15 ));
+        this.type = _type;
     }
 
     public String getNom() {
@@ -61,6 +62,6 @@ public class Jauge {
         return false;
     }
     public void appliquer_effet(int effet){
-        this.setValeur(this.getValeur() - effet);
+        this.setValeur(this.getValeur() + effet);
     }
 }

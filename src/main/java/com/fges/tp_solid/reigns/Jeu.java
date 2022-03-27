@@ -36,6 +36,7 @@ public class Jeu {
         System.out.println("Création du personnage...");
         
         initPersonnage();
+        questions.initialiserQuestions(personnage.getJauges());
         
         System.out.println(personnage.getGenre().longRegne()
                 +" "+personnage.getNom());
@@ -102,7 +103,7 @@ public class Jeu {
                 new Jauge("Armée"),
                 new Jauge("Finance")
                 );*/
-        List<Jauge> jauges = Arrays.asList(new Jauge("Clergé"), new Jauge("Peuple"), new Jauge("Armée"), new Jauge("Finances"));
+        List<Jauge> jauges = Arrays.asList(new Jauge("Clergé", TypeJauge.CLERGE), new Jauge("Peuple", TypeJauge.PEUPLE), new Jauge("Armée", TypeJauge.ARMEE), new Jauge("Finances", TypeJauge.FINANCE));
         Jeu.personnage = new Personnage(nom, roiReine, jauges);
     }
     public static boolean finDuJeu(){

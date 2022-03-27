@@ -58,7 +58,7 @@ public class Question {
                 + "]";
         System.out.println(result);
         System.out.println("Effet G:" + effetJaugeGauche.Afficher_Effets());
-        System.out.println("Effet G:" + effetJaugeDroite.Afficher_Effets());
+        System.out.println("Effet D:" + effetJaugeDroite.Afficher_Effets());
         System.out.flush();
         
     }
